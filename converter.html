@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input C" placeholder="Enter Cencius degree" onclick="calculation()">
+<h3>C to F : <span id="Fdegree"></span></h3>
+<h3>C to Kenvin : <span id="Kdegree"></span></h3>
+<script>
+    function Converter(C) {
+        this.C = C;
+
+        this.checkC = function () {
+            if (C < -273) {
+                return alert('Alert!! Wrong Input!!');
+            }
+        }
+
+        this.toF = function () {
+            return C * 9 / 5 + 32;
+        }
+
+        this.toK = function () {
+            return C + 273.15;
+        }
+    }
+
+    function calculation() {
+        let converter = new Converter(parseFloat(document.getElementById('input C').value));
+        converter.checkC();
+        document.getElementById('Fdegree').innerHTML = converter.toF();
+        document.getElementById('Kdegree').innerHTML = converter.toK();
+    }
+</script>
+</body>
+</html>
